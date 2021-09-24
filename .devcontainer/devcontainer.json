@@ -1,0 +1,46 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.191.0/containers/go
+{
+	"name": "Verify JWT",
+	"dockerComposeFile": ["docker-compose.yml"],
+	"service": "app",
+	"workspaceFolder": "/workspace/verify-jwt",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"go.useLanguageServer": true,
+		"go.inferGopath": true,
+		"[go]": {
+			"editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+				"source.organizeImports": true,
+			},
+		// Optional: Disable snippets, as they conflict with completion ranking.
+		"editor.snippetSuggestions": "none",
+		},
+		"[go.mod]": {
+			"editor.formatOnSave": true,
+			"editor.codeActionsOnSave": {
+				"source.organizeImports": true,
+			},
+		},
+		"gopls": {
+			// Add parameter placeholders when completing a function.
+			"usePlaceholders": true,
+			// If true, enable additional analyses with staticcheck.
+			// Warning: This will significantly increase memory usage.
+			"staticcheck": false,
+		},
+		"go.toolsEnvVars":{
+			"GO111MODULE":"on"
+		}
+	},
+	
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"golang.Go"
+	],
+
+	// Uncomment to connect as a non-root user. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+}

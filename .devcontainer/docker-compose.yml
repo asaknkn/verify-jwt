@@ -1,0 +1,10 @@
+version: '3'
+services:
+  app:
+    container_name: verify-jwt
+    build: .
+    ports: 
+      - '8080:8080'
+    volumes:
+      - '../:/workspace/verify-jwt/'
+    tty: true
